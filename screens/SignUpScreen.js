@@ -17,15 +17,15 @@ export default class LoginScreen extends React.Component {
             .then(userCredentials => {
                 return userCredentials.user.updateProfile({
                     displayName: this.state.name
-                })
+                });
             })
             .catch(error => this.setState({ errorMessage: error.message }));
-    }
+    };
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.greeting}>Welcome to All About Me!\nSign Up to get started.</Text>
+                <Text style={styles.greeting}>{'Welcome to All About Me!\nSign Up to get started.'}</Text>
 
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}

@@ -1,9 +1,9 @@
-import { createAppContainer, createSwitchNavigator } from 'react-navigation'
-import { createStackNavigation, createStackNavigator } from 'react-navigation-stack'
-import HomeScreen from './screens/HomeScreen'
-import LoadingScreen from './screens/LoadingScreen'
-import LoginScreen from './screens/LoginScreen'
-import SignUpScreen from './screens/SignUpScreen'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import HomeScreen from './screens/HomeScreen';
+import LoadingScreen from './screens/LoadingScreen';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
 import * as firebase from 'firebase'
 
@@ -24,22 +24,22 @@ firebase.analytics();
 
 const AppStack = createStackNavigator({
   Home: HomeScreen
-})
+});
 
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
   SignUp: SignUpScreen
-})
+});
 
 export default createAppContainer(
-  createStackNavigator(
+  createSwitchNavigator(
     {
       Loading: LoadingScreen,
       App: AppStack,
       Auth: AuthStack
     },
     {
-      initialRouteName: Loading
+      initialRouteName: "Loading"
     }
   )
-)
+);

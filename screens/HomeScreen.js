@@ -12,11 +12,11 @@ export default class HomeScreen extends React.Component {
         const {email, displayName} = firebase.auth().currentUser;
 
         this.setState({email, displayName})
-    }
+    };
 
     signOutUser = () => {
         firebase.auth().signOut();
-    }
+    };
 
     render() {
         return (
