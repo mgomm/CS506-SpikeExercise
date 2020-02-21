@@ -1,8 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+    LayoutAnimation
+} from "react-native";
 import * as firebase from "firebase";
 
 export default class HomeScreen extends React.Component {
+    static navigationOptions = {
+        headerShown: false
+    };
+
     state = {
         email: "",
         displayName: ""
@@ -19,6 +29,7 @@ export default class HomeScreen extends React.Component {
     };
 
     render() {
+        LayoutAnimation.easeInEaseOut();
         return (
             <View style={styles.container}>
                 <Text>Hello, {this.state.email}</Text>

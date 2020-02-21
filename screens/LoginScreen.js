@@ -4,11 +4,18 @@ import {
     Text,
     StyleSheet,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    Image,
+    StatusBar,
+    LayoutAnimation
 } from "react-native";
 import * as firebase from "firebase";
 
 export default class LoginScreen extends React.Component {
+    static navigationOptions = {
+        headerShown: false
+    };
+
     state = {
         email: "",
         password: "",
@@ -25,9 +32,18 @@ export default class LoginScreen extends React.Component {
     };
 
     render() {
+        LayoutAnimation.easeInEaseOut();
         return (
             <View style={styles.container}>
-                <Text style={styles.greeting}>{"Welcome Back!"}</Text>
+                <StatusBar barStyle="light-content"></StatusBar>
+                <Image
+                    source={require("../assets/watercolor-background.jpg")}
+                    style={styles.image}
+                ></Image>
+
+                <Text style={styles.greeting}>
+                    {"Welcome Back!\nPlease Login."}
+                </Text>
 
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && (
@@ -72,7 +88,11 @@ export default class LoginScreen extends React.Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    style={{ alignSelf: "center", marginTop: 32 }}
+                    style={{
+                        alignSelf: "center",
+                        marginTop: 32,
+                        marginBottom: 150
+                    }}
                     onPress={() => this.props.navigation.navigate("SignUp")}
                 >
                     <Text style={{ color: "#414959", fontSize: 13 }}>
@@ -89,10 +109,11 @@ export default class LoginScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "#fff"
     },
     greeting: {
-        marginTop: 32,
+        marginTop: -32,
         fontSize: 18,
         fontWeight: "400",
         textAlign: "center"
@@ -132,5 +153,12 @@ const styles = StyleSheet.create({
         height: 52,
         alignItems: "center",
         justifyContent: "center"
+    },
+    image: {
+        flex: 1,
+        width: null,
+        height: null,
+        marginTop: -150,
+        resizeMode: "contain"
     }
 });

@@ -26,7 +26,15 @@ Watch videos on creating an app with react and firebase. Follow expo instruction
 Found builds weren't working because of the wifi connections I had. Was able to buid using tunnel instead of LAN. Pages look pretty decent, but have a good chunk of errors.
 
 **02/18/2020**
-Found problem was due to misspelling and now all four screens work as intended. Began adding more to user's home page.
+Found problem was due to misspelling and now all four screens work as intended. Began next video in video series on youtube. How to add posts to database and tab navigation.
+
+**02/19/2020**
+Added a bottom tab navigator for each of the pages. They are only blank pages for now, but will have more hopefully later. Working on changing password and username.
+
+**02/20/2020**
+Finished up profile page, user can change name, email, and password. Began looking at how to add data to database and retrieve the list of that data to display.
+
+**02/21/2020**
 
 ### Conclusion
 

@@ -4,11 +4,18 @@ import {
     Text,
     StyleSheet,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    Image,
+    StatusBar
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import * as firebase from "firebase";
 
 export default class SignUpScreen extends React.Component {
+    static navigationOptions = {
+        headerShown: false
+    };
+
     state = {
         name: "",
         email: "",
@@ -34,6 +41,23 @@ export default class SignUpScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="light-content"></StatusBar>
+                <Image
+                    source={require("../assets/watercolor-background.jpg")}
+                    style={styles.image}
+                ></Image>
+
+                <TouchableOpacity
+                    style={styles.back}
+                    onPress={() => this.props.navigation.goBack()}
+                >
+                    <Ionicons
+                        name="ios-arrow-round-back"
+                        size={32}
+                        color="#fff"
+                    ></Ionicons>
+                </TouchableOpacity>
+
                 <Text style={styles.greeting}>
                     {"Welcome to All About Me!\nSign Up to get started."}
                 </Text>
@@ -91,7 +115,11 @@ export default class SignUpScreen extends React.Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    style={{ alignSelf: "center", marginTop: 32 }}
+                    style={{
+                        alignSelf: "center",
+                        marginTop: 32,
+                        marginBottom: 100
+                    }}
                     onPress={() => this.props.navigation.navigate("Login")}
                 >
                     <Text style={{ color: "#414959", fontSize: 13 }}>
@@ -108,10 +136,11 @@ export default class SignUpScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "#fff"
     },
     greeting: {
-        marginTop: 32,
+        marginTop: -32,
         fontSize: 18,
         fontWeight: "400",
         textAlign: "center"
@@ -149,6 +178,24 @@ const styles = StyleSheet.create({
         backgroundColor: "#00b3ff",
         borderRadius: 4,
         height: 52,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    image: {
+        flex: 1,
+        width: null,
+        height: null,
+        marginTop: -150,
+        resizeMode: "contain"
+    },
+    back: {
+        position: "absolute",
+        top: 48,
+        left: 32,
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        backgroundColor: "#1113",
         alignItems: "center",
         justifyContent: "center"
     }
