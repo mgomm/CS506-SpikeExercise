@@ -1,5 +1,7 @@
 import React from "react";
 import FirebaseKeys from "./config";
+import _ from "lodash";
+import { YellowBox } from "react-native";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -19,6 +21,14 @@ import * as firebase from "firebase";
 
 var firebaseConfig = FirebaseKeys;
 firebase.initializeApp(firebaseConfig);
+
+YellowBox.ignoreWarnings(["Setting a timer"]);
+const _console = _.clone(console);
+console.warn = message => {
+    if (message.indexOf("Setting a timer") <= -1) {
+        _console.warn(message);
+    }
+};
 
 const AppTabNavigator = createBottomTabNavigator(
     {

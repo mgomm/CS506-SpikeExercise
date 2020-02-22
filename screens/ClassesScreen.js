@@ -6,18 +6,31 @@ import {
     SafeAreaView,
     Button
 } from "react-native";
+import { addClass, getClasses } from "../Fire";
 import { FlatList } from "react-native-gesture-handler";
-import * as firebase from "firebase";
-//import Fire from "../Fire";
+import { ListItem, Divider } from "react-native-elements";
 
 export default class ClassesScreen extends React.Component {
     state = {
         classList: [],
         currentClass: null
     };
-    // handleAddClass = () => {
-    //     Fire.shared.addClass({ text: this.state.class.trim() });
-    // };
+
+    onClassAdded = newClass => {
+        this.setState(prevState => ({
+            classList: [...prevState.classList, newClass]
+        }));
+    };
+
+    onClassesRecieved = classList => {
+        this.setState(prevState => ({
+            classList: (prevState.classList = classList)
+        }));
+    };
+
+    componentDidMount() {
+        getClasses(this.onClassesRecieved);
+    }
 
     render() {
         return (
@@ -35,15 +48,22 @@ export default class ClassesScreen extends React.Component {
                     />
 
                     <Button
-                        title="Add Class"
+                        title="Submit"
                         style={styles.addClassBtn}
-                        onPress={() => {}}
+                        onPress={() =>
+                            addClass(
+                                {
+                                    name: this.state.currentClass
+                                },
+                                this.onClassAdded
+                            )
+                        }
                     ></Button>
                 </View>
                 <FlatList
                     data={this.state.classList}
                     ItemSeparatorComponent={() => (
-                        <Divider style={{ background: "black" }} />
+                        <Divider style={{ backgroundColor: "black" }} />
                     )}
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item }) => {
@@ -59,6 +79,9 @@ export default class ClassesScreen extends React.Component {
 
 const styles = StyleSheet.create({
     row: {
+        marginTop: 28,
+        borderBottomColor: "#000",
+        borderBottomWidth: StyleSheet.hairlineWidth,
         flexDirection: "row",
         alignContent: "center"
     },

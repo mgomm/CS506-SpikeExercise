@@ -32,13 +32,14 @@ Found problem was due to misspelling and now all four screens work as intended. 
 Added a bottom tab navigator for each of the pages. They are only blank pages for now, but will have more hopefully later. Working on changing password and username.
 
 **02/20/2020**
-Finished up profile page, user can change name, email, and password. Began looking at how to add data to database and retrieve the list of that data to display.
+Finished up profile page, user can change name, email, and password. Began looking at how to add data to firebase and retrieve a list of that data to display. Began implementing an add line to create lists in firebase database.
 
 **02/21/2020**
+Set up firebase collections in database. Was able to add classes, goals, and other facts. Tried fixing the automatic update, but ran into more problems. Finally found the problem, with automatically updating the table. Began working on the user's bio, but probably won't have enough time to finish.
 
 ### Conclusion
 
-I have always wanted to start learning new languages and libraries especially ones for mobile development, but never got the motivation to do so until now. I have never used react native, node.js, firebase, or expo before so everything was brand new to me. Not only did I have to learn all of that, but since we kept switching technology stacks, I also learned a little bit of Flask and Django for python. Anyway, to start I began setting up extensions for react native and in VS Code. While researching, I found a lot of people recommending expo to start which is basically a starter kit for creating a react native project. Using what expo gave me and following a youtube video, I was able to create a basic login, sign up, loading, and home screen. From there I just began following the technique and patterns I've learned so far to creat the All About Me app. Overall, I thought this was a super fun project that can be used a base for many other projects including the MadDealz project we will be making in class.
+I have always wanted to start learning new languages and libraries especially ones for mobile development, but never got the motivation to do so until now. I have never used react native, node.js, firebase, or expo before so everything was brand new to me. Not only did I have to learn all of that, but since we kept switching technology stacks, I also learned a little bit of Flask and Django for python. Anyway, to start I began setting up extensions for react native and in VS Code. While researching, I found a lot of people recommending expo to start which is basically a starter kit for creating a react native project. Using what expo gave me and following a youtube video, I was able to create a basic login, sign up, loading, and home screen. From there I just began following the technique and patterns I've learned so far to creat the All About Me app. Unfortunately I was unable to fully get the bio on the homescreen done. Overall, I thought this was a super fun project that can be used a base for many other projects including the MadDealz project we will be making in class.
 
 ### Resources Used:
 

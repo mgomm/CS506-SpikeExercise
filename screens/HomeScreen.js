@@ -9,13 +9,10 @@ import {
 import * as firebase from "firebase";
 
 export default class HomeScreen extends React.Component {
-    static navigationOptions = {
-        headerShown: false
-    };
-
     state = {
         email: "",
-        displayName: ""
+        displayName: "",
+        description: ""
     };
 
     componentDidMount() {
@@ -24,22 +21,18 @@ export default class HomeScreen extends React.Component {
         this.setState({ email, displayName });
     }
 
-    signOutUser = () => {
-        firebase.auth().signOut();
-    };
-
     render() {
         LayoutAnimation.easeInEaseOut();
         return (
             <View style={styles.container}>
-                <Text>Hello, {this.state.email}</Text>
+                <Text style={styles.header}>{this.state.displayName}</Text>
 
-                <TouchableOpacity
-                    stle={{ marginTop: 32 }}
-                    onPress={this.signOutUser}
-                >
-                    <Text>Logout</Text>
-                </TouchableOpacity>
+                <Text style={styles.description}>
+                    My name is {this.state.displayName} and I am a senior
+                    studying Computer Science at UW-Madison. Here is where I
+                    store my classes, goals, and some other fun facts. Check out
+                    the other tabs and you will know all about me!
+                </Text>
             </View>
         );
     }
@@ -50,5 +43,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
+    },
+    header: {
+        fontSize: 32,
+        fontWeight: "900"
+    },
+    description: {
+        fontSize: 18
     }
 });
