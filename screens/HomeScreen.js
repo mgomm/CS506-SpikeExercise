@@ -28,10 +28,12 @@ export default class HomeScreen extends React.Component {
                 <Text style={styles.header}>{this.state.displayName}</Text>
 
                 <Text style={styles.description}>
-                    My name is {this.state.displayName} and I am a senior
-                    studying Computer Science at UW-Madison. Here is where I
-                    store my classes, goals, and some other fun facts. Check out
-                    the other tabs and you will know all about me!
+                    My name is {this.state.displayName} and I am studying
+                    Computer Science at UW-Madison. Here is where I store my
+                    classes, goals, and some other fun facts. Check out the
+                    other tabs and you will know all about me! If you want to
+                    reach out and contact me, email me here: {this.state.email}.
+                    Hope you enjoy!
                 </Text>
             </View>
         );
@@ -46,9 +48,12 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 32,
-        fontWeight: "900"
+        fontWeight: "900",
+        marginBottom: 56
     },
     description: {
-        fontSize: 18
+        fontSize: 18,
+        marginHorizontal: 30,
+        textAlign: "center"
     }
 });
